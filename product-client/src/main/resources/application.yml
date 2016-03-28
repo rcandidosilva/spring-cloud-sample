@@ -1,0 +1,6 @@
+product-service:
+  ribbon:
+    eureka:
+      enabled: false
+    listOfServers: localhost:62327,localhost:62336,localhost:9999
+    ServerListRefreshInterval: 15000
