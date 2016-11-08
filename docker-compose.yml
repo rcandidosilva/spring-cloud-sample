@@ -1,45 +1,69 @@
----
-config-service:
-  #build: ./support/config-service/src/main/docker
-  image: demo.spring.cloud/config-service:latest
-  ports:
+version: '2'
+services:
+  config-service:
+    image: demo.spring.cloud/config-service:latest
+    expose:
+      - "8888"
+    ports:
       - "8888:8888"
+    networks:
+      - microservices
 
-eureka-service:
-  #build: ./support/eureka-service/src/main/docker
-  image: demo.spring.cloud/eureka-service:latest
-  ports:
+  eureka-service:
+    image: demo.spring.cloud/eureka-service:latest
+    links:
+      - config-service
+    expose:
+      - "8761"
+    ports:
       - "8761:8761"
+    networks:
+      - microservices
 
-security-service:
-  #build: ./security-service/src/main/docker
-  image: demo.spring.cloud/security-service:latest
-  links:
-    - config-service:config-service
-    - eureka-service:eureka-service
-  ports:
-    - "8081:8081"
+  security-service:
+    image: demo.spring.cloud/security-service:latest
+    links:
+      - config-service
+      - eureka-service
+    expose:
+      - "8081"
+    ports:
+      - "8081:8081"
+    networks:
+      - microservices
 
-product-service:
-  #build: ./product-service/src/main/docker
-  image: demo.spring.cloud/product-service:latest
-  links:
-    - config-service:config-service
-    - eureka-service:eureka-service
-  ports:
-    - "8082:8082"
+  product-service:
+    image: demo.spring.cloud/product-service:latest
+    links:
+      - config-service
+      - eureka-service
+    expose:
+      - "8082"
+    ports:
+      - "8082:8082"
+    networks:
+      - microservices
 
-hystrix-service:
-  #build: ./support/hystrix-dashboard/src/main/docker
-  image: demo.spring.cloud/hystrix-dashboard:latest
-  ports:
+  hystrix-dashboard:
+    image: demo.spring.cloud/hystrix-dashboard:latest
+    expose:
+      - "8090"
+    ports:
       - "8090:8090"
+    networks:
+      - microservices
 
-zuul-service:
-  #build: ./support/zuul-service/src/main/docker
-  image: demo.spring.cloud/zuul-service:latest
-  links:
-    - product-service:product-service
-    - security-service:security-service
-  ports:
-    - "8080:8080"
+  zuul-service:
+    image: demo.spring.cloud/zuul-service:latest
+    links:
+      - security-service
+      - product-service
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    networks:
+      - microservices
+
+networks:
+  microservices:
