@@ -6,4 +6,4 @@ spring:
     config:
       server:
         git:
-          uri: https://gitlab.com/Lawandorder/config.git
+          uri: https://github.com/rcandidosilva/spring-cloud-sample-config.git
