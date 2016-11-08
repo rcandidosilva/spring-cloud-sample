@@ -1,6 +1,0 @@
-server:
-  port: ${PORT:8081}
-
-logging:
-  level:
-    org.springframework.web: DEBUG
