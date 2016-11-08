@@ -1,0 +1,45 @@
+---
+config-service:
+  #build: ./support/config-service/src/main/docker
+  image: demo.spring.cloud/config-service:latest
+  ports:
+      - "8888:8888"
+
+eureka-service:
+  #build: ./support/eureka-service/src/main/docker
+  image: demo.spring.cloud/eureka-service:latest
+  ports:
+      - "8761:8761"
+
+security-service:
+  #build: ./security-service/src/main/docker
+  image: demo.spring.cloud/security-service:latest
+  links:
+    - config-service:config-service
+    - eureka-service:eureka-service
+  ports:
+    - "8081:8081"
+
+product-service:
+  #build: ./product-service/src/main/docker
+  image: demo.spring.cloud/product-service:latest
+  links:
+    - config-service:config-service
+    - eureka-service:eureka-service
+  ports:
+    - "8082:8082"
+
+hystrix-service:
+  #build: ./support/hystrix-dashboard/src/main/docker
+  image: demo.spring.cloud/hystrix-dashboard:latest
+  ports:
+      - "8090:8090"
+
+zuul-service:
+  #build: ./support/zuul-service/src/main/docker
+  image: demo.spring.cloud/zuul-service:latest
+  links:
+    - product-service:product-service
+    - security-service:security-service
+  ports:
+    - "8080:8080"
