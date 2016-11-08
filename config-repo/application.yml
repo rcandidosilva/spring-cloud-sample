@@ -1,0 +1,12 @@
+server:
+  port: ${PORT:${SERVER_PORT:0}}
+
+info:
+  id: ${spring.application.name}
+
+logging:
+  level: debug
+
+endpoints:
+  shutdown:
+    enabled: true

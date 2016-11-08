@@ -1,0 +1,28 @@
+server:
+  port: ${PORT:8080}
+
+endpoints:
+  restart:
+    enabled: true
+  shutdown:
+    enabled: true
+  health:
+    sensitive: false
+
+zuul:
+  routes:
+    cadastro:
+      path: /**
+      serviceId: API-SERVER
+    doc:
+      path: /core/**
+      serviceId: CORE-SERVER
+    gft:
+      path: /batch/**
+      serviceId: BATCH-SERVER
+    security:
+      path: /security/**
+      serviceId: SECURITY-SERVER
+    jobs:
+      path: /workflow/**
+      serviceId: WORKFLOW-SERVER

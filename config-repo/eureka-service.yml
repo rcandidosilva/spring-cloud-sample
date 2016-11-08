@@ -1,0 +1,17 @@
+server:
+  port: ${PORT:8761}
+
+logging:
+  level:
+    org.springframework.web: DEBUG
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+  server:
+    wait-time-in-ms-when-sync-empty: 0
