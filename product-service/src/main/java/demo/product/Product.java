@@ -4,9 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-/**
- * Created by rodrigo on 11/8/16.
- */
 @Entity
 class Product {
 

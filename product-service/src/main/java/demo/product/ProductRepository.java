@@ -7,9 +7,6 @@ import org.springframework.data.rest.core.annotation.RestResource;
 
 import java.util.Collection;
 
-/**
- * Created by rodrigo on 11/8/16.
- */
 @RepositoryRestResource
 interface ProductRepository extends JpaRepository<Product, Long> {
 
