@@ -1,23 +1,17 @@
-package demo.zuul;
+package demo.gateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
-import org.springframework.boot.builder.SpringApplicationBuilder;
-import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
 import org.springframework.security.web.csrf.HttpSessionCsrfTokenRepository;
-import org.springframework.security.web.header.HeaderWriterFilter;
 import org.springframework.web.filter.OncePerRequestFilter;
-import org.springframework.web.filter.RequestContextFilter;
-import org.springframework.web.util.WebUtils;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -31,10 +25,10 @@ import java.io.IOException;
 @EnableDiscoveryClient
 @EnableZuulProxy
 @EnableOAuth2Sso
-public class ZuulServiceApplication extends WebSecurityConfigurerAdapter {
+public class APIGateway extends WebSecurityConfigurerAdapter {
 
     public static void main(String[] args) {
-        SpringApplication.run(ZuulServiceApplication.class, args);
+        SpringApplication.run(APIGateway.class, args);
     }
 
     @Override

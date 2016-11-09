@@ -53,8 +53,8 @@ services:
     networks:
       - microservices
 
-  zuul-service:
-    image: demo.spring.cloud/zuul-service:latest
+  api-gateway:
+    image: demo.spring.cloud/api-gateway:latest
     links:
       - security-service
       - product-service

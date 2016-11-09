@@ -5,17 +5,17 @@
 
 	<parent>
 		<groupId>demo.spring.cloud</groupId>
-		<artifactId>support</artifactId>
+		<artifactId>spring-cloud-demo</artifactId>
 		<version>1.0.0-SNAPSHOT</version>
 		<relativePath>../</relativePath>
 	</parent>
 
-	<artifactId>zuul-service</artifactId>
+	<artifactId>api-gateway</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>war</packaging>
 
-	<name>zuul-service</name>
-	<description>Zuul Service</description>
+	<name>api-gateway</name>
+	<description>API Gateway</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

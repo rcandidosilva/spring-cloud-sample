@@ -19,7 +19,6 @@
     <modules>
         <module>config-service</module>
         <module>eureka-service</module>
-        <module>zuul-service</module>
         <module>hystrix-dashboard</module>
     </modules>
 

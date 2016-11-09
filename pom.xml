@@ -23,6 +23,7 @@
     </properties>
 
     <modules>
+        <module>api-gateway</module>
         <module>product-service</module>
         <module>security-service</module>
         <module>support</module>
