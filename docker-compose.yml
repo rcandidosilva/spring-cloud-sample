@@ -37,6 +37,7 @@ services:
     links:
       - config-service
       - eureka-service
+      - security-service
     expose:
       - "8082"
     ports:
