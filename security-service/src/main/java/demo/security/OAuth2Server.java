@@ -29,7 +29,7 @@ public class OAuth2Server extends AuthorizationServerConfigurerAdapter {
     @Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.inMemory()
-                .withClient("acme").secret("acmesecret")
+                .withClient("client").secret("secret")
                 .authorizedGrantTypes("authorization_code", "refresh_token", "password",
                         "implicit", "client_credentials").scopes("openid");
     }

@@ -7,6 +7,8 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.netflix.zuul.EnableZuulProxy;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.oauth2.config.annotation.web.configuration.EnableResourceServer;
+import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfigurerAdapter;
 import org.springframework.security.web.csrf.CsrfFilter;
 import org.springframework.security.web.csrf.CsrfToken;
 import org.springframework.security.web.csrf.CsrfTokenRepository;
@@ -24,8 +26,8 @@ import java.io.IOException;
 @SpringBootApplication
 @EnableDiscoveryClient
 @EnableZuulProxy
-@EnableOAuth2Sso
-public class APIGateway extends WebSecurityConfigurerAdapter {
+@EnableResourceServer
+public class APIGateway extends ResourceServerConfigurerAdapter {
 
     public static void main(String[] args) {
         SpringApplication.run(APIGateway.class, args);
@@ -34,10 +36,9 @@ public class APIGateway extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/**").authorizeRequests()
-                .antMatchers("/login").permitAll()
+                .antMatchers("/uaa/**").permitAll()
                 .anyRequest().authenticated().and().csrf().csrfTokenRepository(csrfTokenRepository()).and()
-                .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class)
-                .logout().logoutUrl("/logout").permitAll().logoutSuccessUrl("/");
+                .addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
     }
 
     private Filter csrfHeaderFilter() {

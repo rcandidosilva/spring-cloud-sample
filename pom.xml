@@ -25,6 +25,8 @@
     <modules>
         <module>api-gateway</module>
         <module>product-service</module>
+        <module>customer-service</module>
+        <module>payment-service</module>
         <module>security-service</module>
         <module>support</module>
     </modules>
