@@ -16,13 +16,14 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li ng-show="!logged"><a ui-sref="login">Login</a></li>
-                    <li ng-show="logged" class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Menu <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a ui-sref="customer">Cliente</a></li>
-                        </ul>
-                    </li>
+                    <!--<li ng-show="logged" class="dropdown">-->
+                        <!--<a class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"-->
+                           <!--aria-expanded="false">Menu <span class="caret"></span></a>-->
+                        <!--<ul class="dropdown-menu">-->
+                            <!--<li><a ui-sref="customer">Cliente</a></li>-->
+                        <!--</ul>-->
+                    <!--</li>-->
+                    <li ng-show="logged">{{user.name}}</li>
                     <li ng-show="logged"><a href="#" ng-click="logout()">Logout</a></li>
                 </ul>
             </div>
