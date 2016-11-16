@@ -1,0 +1,106 @@
+a:focus{
+	outline: none;
+}
+/** MAIN */
+.l-main{
+	
+	.page-header{
+		border-bottom: none;
+
+		h3{
+			margin-top: 0px;
+		}
+	}
+}
+
+.loading{
+	background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    position: fixed;
+    text-align: center;
+    top: 0;
+    width: 100%;
+    z-index: 4000;
+
+	img{
+		position: absolute;
+		z-index: 4000;
+		top: 48%;
+		width: 32px;
+		height: 32px;
+	}
+}
+.txt-center{
+	text-align: center;
+}
+body.noscroll{
+	position: fixed;
+	overflow: hidden;
+	width: 100%;
+}
+.modal-content {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+}
+
+.breadcrumb {
+  padding: 8px 15px;
+  margin-left: 15px;
+  margin-bottom: 5px!important;
+  list-style: none;
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+.breadcrumb a{
+  color: $green;
+  font-weight:bold;
+  text-decoration: none;
+}
+
+.breadcrumb > li + li:before {
+  color: #ccc;
+  content: "> ";
+  padding: 0 5px;
+}
+
+.angucomplete-description {
+	font-size: 12px;
+}
+
+.number-icon {
+	background-image: url("../images/marker_icon.png");
+	text-align: center;
+	color: white;
+}
+
+.line-separator {
+}
+
+.side-line {
+  display: inline-block;
+  border-top: 1px solid $green-light;
+  width: 15%;
+}
+
+.triangle {
+  display: inline-block;
+  height: 10px;
+  width: 10px;
+  transform: rotate(45deg);
+  transform-origin: center center;
+  border-top: 1px solid $green-light;
+  border-left: 1px solid $green-light;
+  margin-left: -3px;
+  margin-right: -3px;
+  margin-bottom: -3px;
+}
+figure {
+  margin: 0!important;
+}
+.img-thumbnail {
+  border: 0!important;
+  border-radius: 0!important;
+
+}

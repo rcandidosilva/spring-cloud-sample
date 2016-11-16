@@ -1,0 +1,115 @@
+/** BASE STYLES */
+* { 
+  -webkit-box-sizing: border-box; 
+  -moz-box-sizing: border-box;    
+  box-sizing: border-box;   
+
+  -webkit-font-smoothing: antialiased;      
+}
+
+/** DEFAULT BODY STYLES */
+body{
+	
+	color: $font-color;
+	font-family: $primary-font;
+	font-size: $base-font-size;
+	font-weight: $primary-weight;
+	line-height: $base-line-height;
+}
+
+/**
+ * ----------------------------------------------------------------------------------------
+ * Title Styles
+ * ----------------------------------------------------------------------------------------
+ */
+
+h1,h2,h3,h4,h5{
+	font-family: $title-font;
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+h1{
+	font-size: 60px;
+	line-height: 60px;
+}
+
+h2{
+	font-size: 45px;
+	line-height: 50px;
+}
+
+h3{
+	font-size: 33px;
+	line-height: 40px;
+}
+
+h4{
+	font-size: 24px;
+	line-height: 30px;
+}
+
+h5{
+	font-size: 21px;
+	line-height: 30px;
+
+  &.form-control-static{
+	margin-top:5px;
+  }
+
+  &.subtitle{
+	margin-top:5px;
+	font-size:18px;
+  }
+}
+
+
+/** DEFAULT LINK STYES */
+a{
+	
+	&:hover{
+		color: $green;
+		text-decoration: none;
+		outline: none !important;
+	}
+
+	&:active{
+	  color: $green;
+	  text-decoration: none;
+	  outline: none !important;
+	}
+
+	&:hover{
+	  color: $green;
+		text-decoration: underline;
+	}
+
+	&:focus,&:visited{
+		color: $green;
+	}
+
+	&[target="blank"]{
+	  color: $green;
+	}
+}
+
+.fa{
+  color: $green;
+}
+
+.page-header {
+  padding-bottom: 9px;
+  margin: 15px 0 20px;
+  border-bottom:0;
+}
+
+hr {
+  margin-top: 0!important;
+  margin-bottom: 20px;
+  border: 0;
+  border-top: 1px solid #eee;
+}
+
+
+
+

@@ -1,0 +1,142 @@
+/** HEADER */
+.l-header{
+	height: 50px;
+    margin-top: 10px;
+	/**
+	 * ----------------------------------------------------------------------------------------
+	 * Branding
+	 * ----------------------------------------------------------------------------------------
+	 */
+
+    & > div > hr{
+	  margin-top: 5px!important;
+	}
+
+	.branding{
+		font-size: 16px;
+		font-weight: 700;
+		color: $green;
+		position: relative;
+		display: inline-block;
+		padding-left: 30px;
+		text-decoration: none;
+		padding-top: 14px;
+	}
+
+	/**
+	 * ----------------------------------------------------------------------------------------
+	 * Main navigation
+	 * ----------------------------------------------------------------------------------------
+	 */
+	
+	.main-nav{
+		height: 50px;
+
+		li{
+			a{
+				display: block;
+				padding: 0px 10px;
+				line-height: 49px;
+				height: 50px;
+				font-weight: 700;
+				color: $gray-fonts;
+				font-size: 14px;
+				text-decoration: none;
+			}
+		}
+	}
+
+	/**
+	 * ----------------------------------------------------------------------------------------
+	 * User meta
+	 * ----------------------------------------------------------------------------------------
+	 */
+	.user-meta{
+		height: 50px;
+
+		li{
+			cursor: default;
+
+			a{
+				display: block;
+				line-height: 49px;
+				height: 50px;
+				font-weight: 700;
+				color: $gray-fonts;
+				font-size: 14px;
+				text-decoration: none;
+				cursor: pointer;
+
+				i{
+					color: $green;
+					margin: 0px 3px;
+				}
+			}
+
+			&:first-child{
+				a:after{
+					content: "|";
+					display: inline-block;
+					width: 10px;
+				}
+			}
+
+			.user-detail{
+				cursor: pointer;
+
+			&:hover{
+					opacity: 0.8;
+				}
+			}
+		}
+		.language-dropdown > select{
+			cursor: pointer;
+		}
+	}
+}
+
+.webui-popover-content{
+	.fa-close{
+		cursor: pointer;
+
+		&:hover{
+			opacity: 0.8;
+		}
+	}
+
+}
+.user-popover{
+	p{
+		font-size: 17px;
+	    font-weight: 300;
+	    padding-right: 12px;
+
+	    span{
+	    	position: absolute;
+	    	top:6px;
+	    	right: 8px;
+	    }
+	}
+	.user-links{
+		padding-top: 16px;
+
+		a{
+			color: $green;
+			line-height: 26px;
+			cursor: pointer;
+
+		&:hover{
+			opacity: 0.8;
+			text-decoration: none;
+		}
+		}
+	}
+}
+
+.username-login-box{
+  color: $green;
+}
+
+ul.list-inline.user-meta > li > a{
+  color:$green;
+}

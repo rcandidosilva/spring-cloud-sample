@@ -1,0 +1,186 @@
+/** FOOTER */
+.l-footer{
+	background-color: #eee;
+	height: 100px;
+
+	/**
+	 * ----------------------------------------------------------------------------------------
+	 * Footer Branding
+	 * ----------------------------------------------------------------------------------------
+	 */
+	
+	.footer-branding{
+		font-size: 18px;
+		text-transform: uppercase;
+		font-weight: 700;
+		color: $white;
+		position: relative;
+		display: inline-block;
+		padding-left: 30px;
+		margin-right: 43px;
+		text-decoration: none;
+		padding-top: 14px;
+
+		&:before{
+			background-color: $white;
+			width: 20px;
+			height: 20px;
+			content: "";
+			border-radius: 50%;
+			position: absolute;
+			top: 13px;
+			left: 0px;
+		}
+	}
+
+	.footer-main-nav{
+		height: 40px;
+
+		li{
+
+			a{
+				height: 40px;
+				display: block;
+				line-height: 40px;
+				padding: 0px 10px;
+				border-radius: 40px;
+				min-width: 80px;				
+				text-align: center;
+				text-decoration: none;
+
+				&:hover,&.active{
+					background-color: $white;
+					color: $green;
+				}
+			}
+		}
+
+	}
+
+	.footer-top{
+		padding: 60px 0 20px 0 ;
+		border-bottom: 1px solid #249953;
+	}
+
+	.footer-middle{
+		padding: 20px 0 10px 0 ;
+		border-bottom: 1px solid #249953;
+	}
+
+	.footer-bottom{
+		padding: 40px 0 30px 0 ;
+		border-bottom: 1px solid #249953;
+	}
+
+	.user-meta{
+		height: 50px;
+
+		li{
+			cursor: default;
+
+			select{
+				cursor: pointer;
+			}
+
+			a{
+				display: block;
+				line-height: 49px;
+				height: 50px;
+				font-weight: 700;
+				color: $white;
+				font-size: 14px;
+				text-decoration: none;
+
+				i{
+					margin: 0px 3px;
+				}
+			}
+
+			&:first-child{
+				a:after{
+					content: "|";
+					display: inline-block;
+					width: 10px;
+				}
+			}
+		}
+		.user-detail{
+			cursor: pointer;
+
+			&:hover{
+				opacity: 0.8;
+			}
+		}
+	}
+	.copy{
+
+	}
+	.language-dropdown{
+		color: #fff;
+
+		&:after{
+			color: #fff;
+		}
+	}
+
+	a,p{ color: $white; }
+}
+
+#login-box{
+	display: none;
+	width: 100%;
+	height: 100%;
+	background-color: rgba($green, 0.9);
+	top:0;
+	position: fixed;
+	z-index: 4000;
+	left: 0;
+
+	.login-form{
+		max-width: 380px;
+		width: 100%;
+		margin: 0 auto;
+		background-color: #fff;
+		padding: 20px;
+		margin-top:8%; 
+
+		h4{
+			margin: 0 0 22px 0;
+			color: #666;
+			padding-bottom: 12px;
+			border-bottom: 1px solid #dadada;
+		}
+		label{
+			margin-top: 10px;
+		}
+		i.fa-close{
+			color: $green;
+			cursor: default;
+
+			&:hover{
+				opacity: 0.8;
+			}
+		}
+		.checkbox{
+
+			label{
+				margin: 0;
+				font-weight: 400;
+				color: #666;
+
+				&:before{
+					border: 1px solid #ddd;
+				}
+			}
+		}
+		#inputPassword{
+			margin-bottom: 28px;
+		}
+		a.forgot-pw{
+			color:$green;
+		}
+		#rem-me{
+			margin-top: 12px;
+		}
+	}
+}

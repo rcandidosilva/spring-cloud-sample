@@ -1,0 +1,66 @@
+{
+  "configVars": {
+    "app": "app",
+    "appjs": "scripts",
+    "appcss": "styles",
+    "build": "build",
+    "dist": "dist",
+    "hostname": "localhost",
+    "port": 9000
+  },
+  "bowerFiles": [
+    "angular/angular.js",
+    "angular-route/angular-route.js",
+    "angular-resource/angular-resource.js",
+    "angular-mocks/angular-mocks.js",
+    "angular-toastr/dist/angular-toastr.js",
+    "angular-toastr/dist/angular-toastr.tpls.js",
+    "angular-translate/angular-translate.js",
+    "angular-sanitize/angular-sanitize.js",
+    "angular-cookies/angular-cookies.js",
+    "angularAMD/angularAMD.js",
+    "angularAMD/ngload.js",
+    "bootstrap/dist/js/bootstrap.js",
+    "requirejs/require.js",
+    "es5-shim/es5-shim.js",
+    "jquery/dist/jquery.min.js",
+    "jquery-ui/jquery-ui.js",
+    "jquery-validation/dist/jquery.validate.js",
+    "json3/lib/json3.js",
+    "ng-load/ng-load.js",
+    "angular-resource/angular-resource.js",
+    "angular-ui-router/release/angular-ui-router.js",
+    "webui-popover/dist/jquery.webui-popover.js",
+    "underscore/underscore.js",
+    "leaflet/dist/leaflet.js",
+    "leaflet.markercluster/dist/leaflet.markercluster.js",
+    "angular-leaflet-directive/dist/angular-leaflet-directive.js",
+    "angular-simple-logger/dist/angular-simple-logger.js",
+    "angucomplete-alt/angucomplete-alt.js",
+    "waypoints/lib/jquery.waypoints.js",
+    "tablesorter/jquery.tablesorter.js",
+    "angular-tablesort/js/angular-tablesort.js",
+    "highcharts-ng/dist/highcharts-ng.js",
+    "magnific-popup/dist/jquery.magnific-popup.js"
+  ],
+  "cssFiles": [
+    "bootstrap/dist/css/bootstrap.css",
+    "normalize-css/normalize.css",
+    "Font-Awesome/css/font-awesome.css",
+    "magnific-popup/dist/magnific-popup.css",
+    "angular-toastr/dist/angular-toastr.css",
+    "leaflet/dist/leaflet.css",
+    "leaflet.markercluster/dist/MarkerCluster.css",
+    "leaflet.markercluster/dist/MarkerCluster.Default.css",
+    "angucomplete-alt/angucomplete-alt.css",
+    "webui-popover/dist/jquery.webui-popover.css"
+  ],
+  "cssFonts": [
+    "bootstrap/fonts/glyphicons-halflings-regular.*",
+    "Font-Awesome/fonts/font*.*"
+  ],
+  "buildFiles": [
+    "images/**", "views/**", "scripts/ext/require.js"
+  ]
+
+}

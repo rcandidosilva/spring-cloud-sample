@@ -29,6 +29,7 @@
         <module>payment-service</module>
         <module>security-service</module>
         <module>support</module>
+        <module>ui-service</module>
     </modules>
 
     <dependencyManagement>

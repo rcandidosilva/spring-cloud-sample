@@ -1,0 +1,88 @@
+/** BUTTONS */
+.btn{
+	
+	@extend .transitions;
+	height: 40px;
+	padding: 0px 20px;
+	line-height: 40px;
+	box-shadow: none;
+	color: #fff !important;
+	font-weight: 500;
+	font-size: 16px;
+	text-align: center;
+	outline: none !important;
+	box-shadow: none !important;
+	border-radius: 0px;
+
+
+	i{
+		margin: 0px 5px;
+	}
+	
+	&.rounded{
+		border-radius: 40px;
+	}
+
+	&.green-btn{
+		background-color: $green;
+	}
+
+	&.btn-primary{
+		background-color: #666666;
+		border: 1px solid #EAEAEA;
+
+		&.hollow{
+			background-color: transparent;
+			color: #666666 !important;
+		}
+
+		&.inset{
+			color: #fff !important;
+			border:1px solid #fff;
+
+			&:hover{
+				background-color: #fff;
+				color: $green !important;
+			}
+
+			&:active{
+				background-color: #dfe0e1;
+				color: $green !important;
+				border: 1px solid #fff !important;
+			}
+		}
+
+		&:hover{
+			background-color: #606670;
+			border: 1px solid #606670;
+			color: #fff !important;
+		}
+
+		&:active{
+			background-color: #666666;
+			border: 1px solid #666666;
+			color: #fff !important;
+		}
+	}
+
+	&.small{
+		height: 30px;
+		line-height: 28px;
+		margin-top: -11px;
+		font-size: 14px;
+	}
+
+	
+}
+.btn-link-primary{
+  color:#666!important;}
+.btn-right-side{
+  position: relative;
+  top: 3px;
+  left: -5px;
+  padding: 4px;
+  padding-left: 7px;
+  border-right: solid 1px #EAEAEA;
+  border-top: solid 1px #EAEAEA;
+  cursor: pointer;
+  border-bottom: solid 1px #EAEAEA;}
