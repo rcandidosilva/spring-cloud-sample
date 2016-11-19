@@ -1,4 +1,4 @@
-# Nexti Web
+# UI Service
 
 ## Development
 To setup and run this project, do the following:

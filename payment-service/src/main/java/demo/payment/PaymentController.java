@@ -23,9 +23,4 @@ public class PaymentController {
         return products.getContent();
     }
 
-    @RequestMapping(value = "/test", method = RequestMethod.POST)
-    public String test() {
-        return "POST Test";
-    }
-
 }
