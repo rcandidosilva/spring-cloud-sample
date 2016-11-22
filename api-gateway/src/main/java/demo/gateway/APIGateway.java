@@ -36,8 +36,7 @@ public class APIGateway extends ResourceServerConfigurerAdapter {
     @Override
     public void configure(HttpSecurity http) throws Exception {
         http.antMatcher("/**").authorizeRequests()
-                .antMatchers("/uaa/**").permitAll()
-                .anyRequest().authenticated().and()
+                .antMatchers("/uaa/**").permitAll().and()
                 .csrf().disable();
                 //.csrf().csrfTokenRepository(csrfTokenRepository()).and().addFilterAfter(csrfHeaderFilter(), CsrfFilter.class);
     }
