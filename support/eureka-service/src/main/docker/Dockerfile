@@ -15,8 +15,9 @@ ADD *.jar /app.jar
 VOLUME /tmp
 
 RUN sh -c 'touch /app.jar'
-RUN sh -c 'sleep ${STARTUP_SLEEP}'
 
 EXPOSE ${PORT}
 
-ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
+CMD echo "The application will start in ${STARTUP_SLEEP}s..." && \
+    sleep ${STARTUP_SLEEP} && \
+    java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom -jar /app.jar
