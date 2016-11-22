@@ -1,7 +1,11 @@
 version: '2'
 services:
+  # ------------
+  #   Support
+  # ------------
   config-service:
-    image: demo.spring.cloud/config-service:latest
+    image: demo.spring.cloud/config-service:${PROFILE}
+    mem_limit: ${MEM_LIMIT}
     expose:
       - "8888"
     ports:
@@ -10,7 +14,8 @@ services:
       - microservices
 
   eureka-service:
-    image: demo.spring.cloud/eureka-service:latest
+    image: demo.spring.cloud/eureka-service:${PROFILE}
+    mem_limit: ${MEM_LIMIT}
     links:
       - config-service
     expose:
@@ -20,11 +25,70 @@ services:
     networks:
       - microservices
 
-  security-service:
-    image: demo.spring.cloud/security-service:latest
+  admin-service:
+    image: demo.spring.cloud/admin-service:${PROFILE}
+    mem_limit: ${MEM_LIMIT}
     links:
       - config-service
       - eureka-service
+    expose:
+      - "8000"
+    ports:
+      - "8000:8000"
+    networks:
+      - microservices
+
+  hystrix-dashboard:
+    image: demo.spring.cloud/hystrix-dashboard:${PROFILE}
+    mem_limit: ${MEM_LIMIT}
+    links:
+      - config-service
+      - eureka-service
+    expose:
+      - "7979"
+    ports:
+      - "7979:7979"
+    networks:
+      - microservices
+
+  security-service:
+    image: demo.spring.cloud/security-service:${PROFILE}
+    mem_limit: ${MEM_LIMIT}
+    links:
+      - config-service
+      - eureka-service
+    expose:
+      - "9999"
+    ports:
+      - "9999:9999"
+    networks:
+      - microservices
+
+  # ------------
+  #   Services
+  # ------------
+  api-gateway:
+    image: demo.spring.cloud/api-gateway:${PROFILE}
+    mem_limit: ${MEM_LIMIT}
+    links:
+      - security-service
+      - product-service
+      - customer-service
+      - payment-service
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    networks:
+      - microservices
+
+  product-service:
+    image: demo.spring.cloud/product-service:${PROFILE}
+    mem_limit: ${MEM_LIMIT}
+    links:
+      - config-service
+      - eureka-service
+      - security-service
     expose:
       - "8081"
     ports:
@@ -32,8 +96,9 @@ services:
     networks:
       - microservices
 
-  product-service:
-    image: demo.spring.cloud/product-service:latest
+  customer-service:
+    image: demo.spring.cloud/customer-service:${PROFILE}
+    mem_limit: ${MEM_LIMIT}
     links:
       - config-service
       - eureka-service
@@ -45,24 +110,17 @@ services:
     networks:
       - microservices
 
-  hystrix-dashboard:
-    image: demo.spring.cloud/hystrix-dashboard:latest
-    expose:
-      - "8090"
-    ports:
-      - "8090:8090"
-    networks:
-      - microservices
-
-  api-gateway:
-    image: demo.spring.cloud/api-gateway:latest
+  payment-service:
+    image: demo.spring.cloud/payment-service:${PROFILE}
+    mem_limit: ${MEM_LIMIT}
     links:
+      - config-service
+      - eureka-service
       - security-service
-      - product-service
     expose:
-      - "8080"
+      - "8083"
     ports:
-      - "8080:8080"
+      - "8083:8083"
     networks:
       - microservices
 

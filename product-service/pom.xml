@@ -12,7 +12,6 @@
 
     <artifactId>product-service</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <packaging>war</packaging>
 
     <name>product-service</name>
     <description>Product Service</description>
@@ -57,6 +56,10 @@
             <artifactId>spring-cloud-starter-security</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.jolokia</groupId>
+            <artifactId>jolokia-core</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.h2database</groupId>
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
@@ -73,6 +76,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <jvmArguments>-Xmx512m</jvmArguments>
+                </configuration>
             </plugin>
         </plugins>
     </build>
