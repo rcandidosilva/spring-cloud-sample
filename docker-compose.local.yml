@@ -1,0 +1,47 @@
+version: '2'
+services:
+  # ------------
+  #   Support
+  # ------------
+  security-service:
+    environment:
+      - DEBUG_OPTS=-agentlib:jdwp=transport=dt_socket,address=5999,server=y,suspend=n
+    expose:
+      - "5999"
+    ports:
+      - "5999:5999"
+
+  # ------------
+  #   Services
+  # ------------
+  api-gateway:
+    environment:
+      - DEBUG_OPTS=-agentlib:jdwp=transport=dt_socket,address=5080,server=y,suspend=n
+    expose:
+      - "5080"
+    ports:
+      - "5080:5080"
+
+  product-service:
+    environment:
+      - DEBUG_OPTS=-agentlib:jdwp=transport=dt_socket,address=5081,server=y,suspend=n
+    expose:
+      - "5081"
+    ports:
+      - "5081:5081"
+
+  customer-service:
+    environment:
+      - DEBUG_OPTS=-agentlib:jdwp=transport=dt_socket,address=5082,server=y,suspend=n
+    expose:
+      - "5082"
+    ports:
+      - "5082:5082"
+
+  payment-service:
+    environment:
+      - DEBUG_OPTS=-agentlib:jdwp=transport=dt_socket,address=5083,server=y,suspend=n
+    expose:
+      - "5083"
+    ports:
+      - "5083:5083"

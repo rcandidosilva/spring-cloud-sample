@@ -4,7 +4,7 @@ services:
   #   Support
   # ------------
   config-service:
-    image: demo.spring.cloud/config-service:${PROFILE}
+    image: ${NAMESPACE}/config-service:${PROFILE}
     mem_limit: ${MEM_LIMIT}
     expose:
       - "8888"
@@ -14,7 +14,7 @@ services:
       - microservices
 
   eureka-service:
-    image: demo.spring.cloud/eureka-service:${PROFILE}
+    image: ${NAMESPACE}/eureka-service:${PROFILE}
     mem_limit: ${MEM_LIMIT}
     links:
       - config-service
@@ -26,7 +26,8 @@ services:
       - microservices
 
   admin-service:
-    image: demo.spring.cloud/admin-service:${PROFILE}
+    image: ${NAMESPACE}/admin-service:${PROFILE}
+#    image: 549402216018.dkr.ecr.us-east-1.amazonaws.com/demo.spring.cloud/admin-service:${PROFILE}
     mem_limit: ${MEM_LIMIT}
     links:
       - config-service
@@ -39,7 +40,7 @@ services:
       - microservices
 
   hystrix-dashboard:
-    image: demo.spring.cloud/hystrix-dashboard:${PROFILE}
+    image: ${NAMESPACE}/hystrix-dashboard:${PROFILE}
     mem_limit: ${MEM_LIMIT}
     links:
       - config-service
@@ -52,7 +53,7 @@ services:
       - microservices
 
   security-service:
-    image: demo.spring.cloud/security-service:${PROFILE}
+    image: ${NAMESPACE}/security-service:${PROFILE}
     mem_limit: ${MEM_LIMIT}
     links:
       - config-service
@@ -68,7 +69,7 @@ services:
   #   Services
   # ------------
   api-gateway:
-    image: demo.spring.cloud/api-gateway:${PROFILE}
+    image: ${NAMESPACE}/api-gateway:${PROFILE}
     mem_limit: ${MEM_LIMIT}
     links:
       - security-service
@@ -83,7 +84,7 @@ services:
       - microservices
 
   product-service:
-    image: demo.spring.cloud/product-service:${PROFILE}
+    image: ${NAMESPACE}/product-service:${PROFILE}
     mem_limit: ${MEM_LIMIT}
     links:
       - config-service
@@ -97,7 +98,7 @@ services:
       - microservices
 
   customer-service:
-    image: demo.spring.cloud/customer-service:${PROFILE}
+    image: ${NAMESPACE}/customer-service:${PROFILE}
     mem_limit: ${MEM_LIMIT}
     links:
       - config-service
@@ -111,7 +112,7 @@ services:
       - microservices
 
   payment-service:
-    image: demo.spring.cloud/payment-service:${PROFILE}
+    image: ${NAMESPACE}/payment-service:${PROFILE}
     mem_limit: ${MEM_LIMIT}
     links:
       - config-service
@@ -126,3 +127,4 @@ services:
 
 networks:
   microservices:
+    driver: bridge

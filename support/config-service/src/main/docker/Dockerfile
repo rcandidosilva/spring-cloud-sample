@@ -8,6 +8,7 @@ ARG PORT
 ENV SPRING_PROFILES_ACTIVE ${SPRING_PROFILES_ACTIVE:-docker}
 ENV STARTUP_SLEEP ${STARTUP_SLEEP:-0}
 ENV JAVA_OPTS ${JAVA_OPTS:-'-Xmx512m'}
+ENV DEBUG_OPTS ${DEBUG_OPTS}
 ENV PORT ${PORT:-8888}
 
 ADD *.jar /app.jar
@@ -20,4 +21,4 @@ EXPOSE ${PORT}
 
 CMD echo "The application will start in ${STARTUP_SLEEP}s..." && \
     sleep ${STARTUP_SLEEP} && \
-    java ${JAVA_OPTS} -Djava.security.egd=file:/dev/./urandom -jar /app.jar
+    java ${JAVA_OPTS} ${DEBUG_OPTS} -Djava.security.egd=file:/dev/./urandom -jar /app.jar
