@@ -1,6 +1,40 @@
 version: '2'
 services:
   # ------------
+  #   Infra
+  # ------------
+  elasticsearch:
+    image: elasticsearch
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - microservices
+
+  logstash:
+    image: logstash
+    command: logstash -f /etc/logstash/conf.d/logstash.conf
+    volumes:
+      - ./logstash:/etc/logstash/conf.d
+    ports:
+      - "5000:5000"
+    links:
+      - elasticsearch
+    networks:
+      - microservices
+
+  kibana:
+    image: kibana
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    links:
+      - elasticsearch
+    networks:
+      - microservices
+
+  # ------------
   #   Support
   # ------------
   config-service:
@@ -27,7 +61,6 @@ services:
 
   admin-service:
     image: ${NAMESPACE}/admin-service:${PROFILE}
-#    image: 549402216018.dkr.ecr.us-east-1.amazonaws.com/demo.spring.cloud/admin-service:${PROFILE}
     mem_limit: ${MEM_LIMIT}
     links:
       - config-service
