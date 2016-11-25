@@ -1,27 +1,33 @@
-package demo.product;
+package demo.customer;
 
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.sleuth.sampler.AlwaysSampler;
 import org.springframework.context.annotation.Bean;
 
 import java.util.Arrays;
 
 @EnableDiscoveryClient
 @SpringBootApplication
-public class ProductServiceApplication {
+public class CustomerApplication {
 
 	@Bean
-	CommandLineRunner runner(ProductRepository repo) {
+	public AlwaysSampler defaultSampler() {
+		return new AlwaysSampler();
+	}
+
+	@Bean
+	CommandLineRunner runner(CustomerRepository repo) {
 		return args -> {
-			Arrays.asList("iPhone 6S, Galaxy S7, Moto X Play, Macbook Pro'13".split(","))
-					.forEach(x -> repo.save(new Product(x)));
+			Arrays.asList("Rodrigo, Joao, Maria, Jose".split(","))
+					.forEach(x -> repo.save(new Customer(x)));
 			repo.findAll().forEach(System.out::println);
 		};
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(ProductServiceApplication.class, args);
+		SpringApplication.run(CustomerApplication.class, args);
 	}
 }

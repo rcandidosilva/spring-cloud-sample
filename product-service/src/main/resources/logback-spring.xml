@@ -4,8 +4,7 @@
     <jmxConfigurator/>
 
     <appender name="STASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
-        <!--<destination>logstash:5000</destination>-->
-        <destination>localhost:5000</destination>
+        <destination>logstash:5000</destination>
         <!-- encoder is required -->
         <encoder class="net.logstash.logback.encoder.LogstashEncoder"/>
     </appender>

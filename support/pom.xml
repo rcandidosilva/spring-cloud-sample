@@ -20,6 +20,7 @@
         <module>config-service</module>
         <module>eureka-service</module>
         <module>hystrix-dashboard</module>
+        <module>zipkin-service</module>
         <module>admin-service</module>
     </modules>
 

@@ -59,6 +59,18 @@ services:
     networks:
       - microservices
 
+  zipkin-service:
+    image: ${NAMESPACE}/zipkin-service:${PROFILE}
+    mem_limit: ${MEM_LIMIT}
+    links:
+      - config-service
+    expose:
+      - "9411"
+    ports:
+      - "9411:9411"
+    networks:
+      - microservices
+
   admin-service:
     image: ${NAMESPACE}/admin-service:${PROFILE}
     mem_limit: ${MEM_LIMIT}
