@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-6 col-md-2">&nbsp;</div>
+    <div class="col-xs-6 col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-heading">{{'CUSTOMER_EDIT' | translate}}</div>
+        <div class="panel-body">
+          <form role="form" ng-submit="update()">
+            <div class="form-group">
+              <label for="companyName">{{'CUSTOMER_COMPANY_NAME' | translate}}</label>
+              <input type="text" id="companyName" ng-model="customer.companyName" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="companyNumber">{{'CUSTOMER_COMPANY_NUMBER' | translate}}</label>
+              <input type="text" id="companyNumber" ng-model="customer.companyNumber" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="fantasyName">{{'CUSTOMER_FANTASY_NAME' | translate}}</label>
+              <input type="text" id="fantasyName" ng-model="customer.fantasyName" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="checkinTolerance">{{'CUSTOMER_CHECKIN_TOLERANCE' | translate}}</label>
+              <input type="text" id="checkinTolerance" ng-model="customer.checkinTolerance" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="checkoutTolerance">{{'CUSTOMER_CHECKOUT_TOLERANCE' | translate}}</label>
+              <input type="text" id="checkoutTolerance" ng-model="customer.checkoutTolerance" class="form-control" />
+            </div>
+
+            <div class="form-group">
+              <label for="startCompetence">{{'CUSTOMER_START_COMPETENCE' | translate}}</label>
+              <input type="text" id="startCompetence" ng-model="customer.startCompetence" class="form-control" />
+            </div>
+
+            <p class="pull-right">
+              <button type="submit" class="btn-sm btn btn-primary">{{'ACTION_SAVE' | translate}}</button>
+              <a class="btn-sm btn btn-default" ui-sref="customer">{{'ACTION_BACK' | translate}}</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6 col-md-2">&nbsp;</div>
+  </div>
+</div>

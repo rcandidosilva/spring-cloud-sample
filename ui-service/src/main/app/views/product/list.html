@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xs-6 col-md-2">&nbsp;</div>
+        <div class="col-xs-6 col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    {{'PRODUCT_LIST' | translate}}
+                    <div class="pull-right">
+                        <a ui-sref="customer_save">
+                            <span class="glyphicon glyphicon-plus"></span> {{'ACTION_NEW' | translate}}
+                        </a>
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th width="20%">{{'PRODUCT_ID' | translate}}</th>
+                            <th width="23%">{{'PRODUCT_NAME' | translate}}</th>
+                            <th width="23%">{{'PRODUCT_PRICE' | translate}}</th>
+                            <th width="23%">{{'PRODUCT_CATEGORY' | translate}}</th>
+                            <th width="4%"></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="c in customer.content">
+                            <td>{{c.id}}</td>
+                            <td>{{c.companyName}}</td>
+                            <td>{{c.companyNumber}}</td>
+                            <td>{{c.fantasyName}}</td>
+                            <td>
+                                <a ui-sref="customer_edit({id: c.id})">
+                                    <span class="glyphicon glyphicon-edit" title="Editar"></span></a>
+                            </td>
+                            <td>
+                                <a ng-click="delete(c.id)" style="cursor:pointer">
+                                    <span class="glyphicon glyphicon-remove" title="Remover"></span></a>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 col-md-2">&nbsp;</div>
+    </div>
+</div>

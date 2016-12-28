@@ -1,18 +1,40 @@
 <div class="container">
-
-    <form class="form-signin">
-        <h2 class="form-signin-heading">Please sign in</h2>
-        <label for="inputUsername" class="sr-only">Username</label>
-        <input type="text" id="inputUsername" class="form-control" placeholder="Username" required autofocus ng-model="data.username">
-        <label for="inputPassword" class="sr-only">Password</label>
-        <input type="password" id="inputPassword" class="form-control" placeholder="Password" required ng-model="data.password">
-        <div class="checkbox">
-            <label>
-                <input type="checkbox" value="remember-me"> Remember me
-            </label>
+    <div class="row">
+        <div class="col-md-4">&nbsp;</div>
+        <div class="col-md-4">
+            <h3>Please Log In, or <a href="#">Sign Up</a></h3>
+            <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a href="#" class="btn btn-lg btn-primary btn-block">Facebook</a>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                    <a href="#" class="btn btn-lg btn-info btn-block">Google</a>
+                </div>
+            </div>
+            <div class="login-or">
+                <hr class="hr-or">
+                <span class="span-or">or</span>
+            </div>
+            <form role="form">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username">
+                </div>
+                <div class="form-group">
+                    <a class="pull-right" href="#">Forgot password?</a>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password">
+                </div>
+                <div class="checkbox pull-right">
+                    <label>
+                        <input type="checkbox">
+                        Remember me </label>
+                </div>
+                <button type="submit" class="btn btn btn-primary">
+                    Log In
+                </button>
+            </form>
         </div>
-        <button class="btn btn-lg btn-primary btn-block" ng-click="login()">Sign in</button>
-    </form>
-
-</div> <!-- /container -->
-
+        <div class="col-md-4">&nbsp;</div>
+    </div>
+</div>

@@ -1,5 +1,7 @@
 package demo.product;
 
+import demo.product.model.Product;
+import demo.product.repo.ProductRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

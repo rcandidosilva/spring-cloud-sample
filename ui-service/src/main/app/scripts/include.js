@@ -13,6 +13,7 @@ define(
         'controllers/base.controller'
     ],
     function (angularAMD) {
+
         'use strict';
 
         return angularAMD;

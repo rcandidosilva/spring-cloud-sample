@@ -1,22 +1,23 @@
-package demo.customer;
+package demo.product.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import java.io.Serializable;
 
 @Entity
-class Customer {
+public class Product implements Serializable {
 
 	@Id
     @GeneratedValue
 	private Long id;
 	private String name;
 
-	public Customer() {
+	public Product() {
 		super();
 	}
 
-	public Customer(String name) {
+	public Product(String name) {
 		this.name = name;
 	}
 
@@ -30,7 +31,7 @@ class Customer {
 
 	@Override
 	public String toString() {
-		return "Customer{" +
+		return "Product{" +
 				"id=" + id +
 				", name='" + name + '\'' +
 				'}';
