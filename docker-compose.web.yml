@@ -1,0 +1,14 @@
+version: '2'
+services:
+  frontend:
+      image: ${NAMESPACE}/frontend:${TAG}
+      expose:
+        - "80"
+      ports:
+        - "80:80"
+      networks:
+        - web
+
+networks:
+  web:
+    driver: bridge

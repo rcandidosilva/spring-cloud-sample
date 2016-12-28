@@ -1,0 +1,52 @@
+version: '2'
+services:
+  elasticsearch:
+    image: elasticsearch
+    mem_limit: 2147483648
+    environment:
+      ES_JAVA_OPTS: "-Xms1g -Xmx1g"
+      MAX_OPEN_FILES: 65536
+    ulimits:
+      nofile:
+          soft: 65536
+          hard: 65536
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    networks:
+      - elk
+
+  logstash:
+    image: logstash
+    command: logstash -e 'input {
+                            tcp {
+                              port => 5000
+                              codec => json_lines
+                            }
+                          }
+                          output {
+                            elasticsearch {
+                              hosts => "elasticsearch:9200"
+                            }
+                          }'
+    ports:
+      - "5000:5000"
+    links:
+      - elasticsearch
+    networks:
+      - elk
+
+  kibana:
+    image: kibana
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    links:
+      - elasticsearch
+    networks:
+      - elk
+
+networks:
+  elk:
+    driver: bridge

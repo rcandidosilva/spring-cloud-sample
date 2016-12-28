@@ -2,4 +2,24 @@
 <configuration>
     <include resource="org/springframework/boot/logging/logback/base.xml"/>
     <jmxConfigurator/>
+
+    <springProperty scope="context" name="logstash" source="logging.logstash.host" defaultValue="localhost"/>
+
+    <appender name="STASH" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+        <destination>${logstash}:5000</destination>
+        <!-- encoder is required -->
+        <encoder class="net.logstash.logback.encoder.LogstashEncoder">
+            <customFields>{"service_name":"api-gateway"}</customFields>
+            <fieldNames>
+                <message>log_msg</message>
+            </fieldNames>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="CONSOLE"/>
+        <appender-ref ref="STASH"/>
+    </root>
+
+    <logger name="org.springframework" level="INFO"/>
 </configuration>

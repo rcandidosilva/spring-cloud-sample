@@ -1,0 +1,164 @@
+version: '2'
+services:
+  config-server:
+    image: ${NAMESPACE}/config-server:${TAG}
+    mem_limit: ${MEM_LIMIT}
+    environment:
+      - SPRING_PROFILES_ACTIVE=${PROFILE}
+    expose:
+      - "8888"
+    ports:
+      - "8888:8888"
+    networks:
+      - microservices
+
+  eureka-server:
+    image: ${NAMESPACE}/eureka-server:${TAG}
+    mem_limit: ${MEM_LIMIT}
+    environment:
+      - SPRING_PROFILES_ACTIVE=${PROFILE}
+    links:
+      - config-server
+    expose:
+      - "8761"
+    ports:
+      - "8761:8761"
+    networks:
+      - microservices
+
+  admin-server:
+    image: ${NAMESPACE}/admin-server:${TAG}
+    mem_limit: ${MEM_LIMIT}
+    environment:
+      - SPRING_PROFILES_ACTIVE=${PROFILE}
+    links:
+      - config-server
+      - eureka-server
+    expose:
+      - "8000"
+    ports:
+      - "8000:8000"
+    networks:
+      - microservices
+
+  security-server:
+    image: ${NAMESPACE}/security:${TAG}
+    mem_limit: ${MEM_LIMIT}
+    environment:
+      - SPRING_PROFILES_ACTIVE=${PROFILE}
+    links:
+      - config-server
+      - eureka-server
+      - admin-server
+    expose:
+      - "9999"
+    ports:
+      - "9999:9999"
+    networks:
+      - microservices
+
+  core-server:
+    image: ${NAMESPACE}/core:${TAG}
+    mem_limit: ${MEM_LIMIT}
+    environment:
+      - SPRING_PROFILES_ACTIVE=${PROFILE}
+    links:
+      - config-server
+      - eureka-server
+      - security-server
+      - admin-server
+    expose:
+      - "8081"
+    ports:
+      - "8081:8081"
+    networks:
+      - microservices
+
+  api-server:
+    image: ${NAMESPACE}/api:${TAG}
+    mem_limit: ${MEM_LIMIT}
+    environment:
+      - SPRING_PROFILES_ACTIVE=${PROFILE}
+    links:
+      - config-server
+      - eureka-server
+      - security-server
+    expose:
+      - "8082"
+    ports:
+      - "8082:8082"
+    networks:
+      - microservices
+
+  notification-server:
+    image: ${NAMESPACE}/notification:${TAG}
+    mem_limit: ${MEM_LIMIT}
+    environment:
+      - SPRING_PROFILES_ACTIVE=${PROFILE}
+    links:
+      - config-server
+      - eureka-server
+      - security-server
+    expose:
+      - "8083"
+    ports:
+      - "8083:8083"
+    networks:
+      - microservices
+
+  report-server:
+    image: ${NAMESPACE}/report:${TAG}
+    mem_limit: ${MEM_LIMIT}
+    environment:
+      - SPRING_PROFILES_ACTIVE=${PROFILE}
+    links:
+      - config-server
+      - eureka-server
+      - security-server
+    expose:
+      - "8084"
+    ports:
+      - "8084:8084"
+    networks:
+      - microservices
+
+  iot-server:
+    image: ${NAMESPACE}/iot:${TAG}
+    mem_limit: ${MEM_LIMIT}
+    environment:
+      - SPRING_PROFILES_ACTIVE=${PROFILE}
+    links:
+      - config-server
+      - eureka-server
+      - security-server
+    expose:
+      - "8085"
+    ports:
+      - "8085:8085"
+    networks:
+      - microservices
+
+  zuul-server:
+    image: ${NAMESPACE}/zuul-server:${TAG}
+    mem_limit: ${MEM_LIMIT}
+    environment:
+      - SPRING_PROFILES_ACTIVE=${PROFILE}
+    links:
+      - config-server
+      - eureka-server
+      - security-server
+      - core-server
+      - api-server
+      - notification-server
+      - report-server
+      - iot-server
+    expose:
+      - "8080"
+    ports:
+      - "8080:8080"
+    networks:
+      - microservices
+
+networks:
+  microservices:
+    driver: bridge

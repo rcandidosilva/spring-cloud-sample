@@ -14,6 +14,8 @@ public class State implements Serializable {
 
     private String name;
 
+    private String abbrev;
+
     @ManyToOne
     private Country country;
 
@@ -33,6 +35,14 @@ public class State implements Serializable {
         this.name = name;
     }
 
+    public String getAbbrev() {
+        return abbrev;
+    }
+
+    public void setAbbrev(String abbrev) {
+        this.abbrev = abbrev;
+    }
+
     public Country getCountry() {
         return country;
     }
@@ -50,6 +60,7 @@ public class State implements Serializable {
 
         if (id != null ? !id.equals(state.id) : state.id != null) return false;
         if (name != null ? !name.equals(state.name) : state.name != null) return false;
+        if (abbrev != null ? !abbrev.equals(state.abbrev) : state.abbrev != null) return false;
         return country != null ? country.equals(state.country) : state.country == null;
     }
 
@@ -57,6 +68,7 @@ public class State implements Serializable {
     public int hashCode() {
         int result = id != null ? id.hashCode() : 0;
         result = 31 * result + (name != null ? name.hashCode() : 0);
+        result = 31 * result + (abbrev != null ? abbrev.hashCode() : 0);
         result = 31 * result + (country != null ? country.hashCode() : 0);
         return result;
     }
@@ -66,6 +78,7 @@ public class State implements Serializable {
         return "State{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", abbrev='" + abbrev + '\'' +
                 ", country=" + country +
                 '}';
     }

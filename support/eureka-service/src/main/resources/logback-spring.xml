@@ -9,7 +9,7 @@
         <destination>${logstash}:5000</destination>
         <!-- encoder is required -->
         <encoder class="net.logstash.logback.encoder.LogstashEncoder">
-            <customFields>{"service_name":"product-service"}</customFields>
+            <customFields>{"service_name":"eureka-service"}</customFields>
             <fieldNames>
                 <message>log_msg</message>
             </fieldNames>
