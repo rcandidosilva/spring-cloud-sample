@@ -8,3 +8,4 @@ build
 dist
 ui-service/**/ext
 grunt-maven.json
+**/FOR_JENKINS

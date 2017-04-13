@@ -1,0 +1,13 @@
+---
+version: '2'
+services:
+  jenkins:
+    image: jenkins
+    container_name: jenkins
+    restart: always
+    ports:
+      - 9000:8080
+    expose:
+      - 9000
+    volumes:
+      - ./FOR_JENKINS:/var/jenkins_home
